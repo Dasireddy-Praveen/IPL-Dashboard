@@ -1,7 +1,10 @@
 import {Component} from 'react'
+
 import Loader from 'react-loader-spinner'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+import PieChart from '../PieChart'
+
 import './index.css'
 
 class TeamMatches extends Component {
@@ -10,6 +13,7 @@ class TeamMatches extends Component {
     latestMatch: {},
     recentMatchesList: [],
     eachTeamId: '',
+    statistics: [],
     isLoading: true,
   }
 
@@ -23,11 +27,13 @@ class TeamMatches extends Component {
     const {id} = params
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const eachTeamDetails = await response.json()
+
     const teamMatchDetails = {
       teamBannerUrl: eachTeamDetails.team_banner_url,
       latestMatchDetails: eachTeamDetails.latest_match_details,
       recentMatches: eachTeamDetails.recent_matches,
     }
+
     const latestMatchSection = {
       umpires: teamMatchDetails.latestMatchDetails.umpires,
       result: teamMatchDetails.latestMatchDetails.result,
@@ -42,6 +48,7 @@ class TeamMatches extends Component {
       secondInnings: teamMatchDetails.latestMatchDetails.second_innings,
       matchStatus: teamMatchDetails.latestMatchDetails.match_status,
     }
+
     const recentMatchesBox = teamMatchDetails.recentMatches.map(eachMatch => ({
       competingTeamLogo: eachMatch.competing_team_logo,
       competingTeam: eachMatch.competing_team,
@@ -49,13 +56,38 @@ class TeamMatches extends Component {
       matchStatus: eachMatch.match_status,
       id: eachMatch.id,
     }))
+
+    const matchResult = teamMatchDetails.recentMatches.reduce(
+      (acc, eachMatch) => {
+        if (eachMatch.match_status === 'Won') {
+          acc.Won = (acc.Won || 0) + 1
+        } else if (eachMatch.match_status === 'Lost') {
+          acc.Lost = (acc.Lost || 0) + 1
+        } else acc.Drawn = (acc.Drawn || 0) + 1
+        return acc
+      },
+      {},
+    )
+
+    const TeamChartResult = [
+      {name: 'Won', value: matchResult.Won},
+      {name: 'Lost', value: matchResult.Lost},
+      {name: 'Drawn', value: matchResult.Drawn},
+    ]
+
     this.setState({
       teamMatches: teamMatchDetails,
       latestMatch: latestMatchSection,
       recentMatchesList: recentMatchesBox,
       eachTeamId: id,
       isLoading: false,
+      statistics: TeamChartResult,
     })
+  }
+
+  onClickBackButton = () => {
+    const {history} = this.props
+    history.replace('/')
   }
 
   render() {
@@ -65,8 +97,10 @@ class TeamMatches extends Component {
       recentMatchesList,
       eachTeamId,
       isLoading,
+      statistics,
     } = this.state
     const {teamBannerUrl} = teamMatches
+
     return (
       <div className={`team-matches-bg ${eachTeamId}`}>
         {isLoading ? (
@@ -82,6 +116,7 @@ class TeamMatches extends Component {
             />
             <p className="latest-matches-title">Latest Matches</p>
             <LatestMatch latestMatchDetails={latestMatch} />
+            <PieChart statistics={statistics} />
             <ul className="match-card-matches-list">
               {recentMatchesList.map(eachRecentMatch => (
                 <MatchCard
@@ -92,6 +127,13 @@ class TeamMatches extends Component {
             </ul>
           </>
         )}
+        <button
+          type="button"
+          className="back-button"
+          onClick={this.onClickBackButton}
+        >
+          Back
+        </button>
       </div>
     )
   }
