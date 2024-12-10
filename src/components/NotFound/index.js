@@ -2,9 +2,8 @@
 import './index.css'
 
 const NotFound = () => (
-  <div className="not-found-route-container">
-    <h1 className="not-found-heading">Page Not Found !!</h1>
+  <div className="ipl-dashboard-bg not-found-page">
+    <h1 className="page-not-found-text">Page Not Found!!</h1>
   </div>
 )
-
 export default NotFound

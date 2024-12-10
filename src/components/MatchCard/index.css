@@ -1,79 +1,40 @@
-/* Write your CSS here */
-.match-item {
+.recent-match-card-bg {
+  background-color: #1e293b;
+  background-size: cover;
+  border-radius: 5px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #0f172a;
-  width: 48%;
-  border-radius: 16px;
-  padding-top: 12px;
-  padding-left: 16px;
-  padding-bottom: 12px;
-  padding-right: 16px;
-  margin-bottom: 24px;
+  width: 30%;
+  height: 400px;
+  margin-bottom: 30px;
 }
-
-@media screen and (min-width: 768px) {
-  .match-item {
-    width: 30%;
-    padding: 24px;
-    margin-bottom: 32px;
-  }
+.competing-team-logo-match-card-section {
+  width: 100px;
 }
-
-.competing-team-logo {
-  max-width: 60px;
-  height: 40px;
-}
-
-@media screen and (min-width: 768px) {
-  .competing-team-logo {
-    max-width: 150px;
-    height: 150px;
-  }
-}
-.competing-team-name {
-  text-align: center;
+.match-card-team-title {
   color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
   font-family: 'Bree Serif';
+}
+.match-card-result {
+  color: #ffffff;
   font-size: 16px;
-  flex-grow: 1;
-}
-
-@media screen and (min-width: 768px) {
-  .competing-team-name {
-    font-size: 24px;
-  }
-}
-
-.result {
+  font-weight: 400;
+  font-family: 'Bree Serif';
   text-align: center;
-  color: #ffffff;
+}
+.match-card-status {
+  font-size: 18px;
+  font-weight: 400;
   font-family: 'Bree Serif';
-  font-size: 10px;
 }
-
-@media screen and (min-width: 768px) {
-  .result {
-    font-size: 16px;
-  }
-}
-
-.match-status {
-  font-family: 'Bree Serif';
-  font-size: 14px;
-}
-
-@media screen and (min-width: 768px) {
-  .match-status {
-    font-size: 24px;
-  }
-}
-
-.match-won {
+.win-status {
   color: #18ed66;
 }
-
-.match-lost {
+.lose-status {
   color: #e31a1a;
 }

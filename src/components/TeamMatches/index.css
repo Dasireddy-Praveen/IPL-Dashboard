@@ -1,69 +1,74 @@
-/* Write your CSS here */
-.team-matches-container {
-  display: flex;
-  justify-content: center;
+.RCB {
+  background-image: linear-gradient(to bottom, #a4261d, #1e293b);
+  background-size: cover;
   min-height: 100vh;
 }
-
-.rcb {
-  background: linear-gradient(to top, #1e293b, #a4261d);
+.KKR {
+  background-image: linear-gradient(to bottom, #5755a7, #1e293b);
+  background-size: cover;
+  min-height: 100vh;
 }
-
-.kkr {
-  background: linear-gradient(to top, #1e293b, #5755a7);
+.KXP {
+  background-image: linear-gradient(to bottom, #d91c1f, #1e293b);
+  background-size: cover;
+  min-height: 100vh;
 }
-
-.kxp {
-  background: linear-gradient(to top, #1e293b, #d91c1f);
+.CSK {
+  background-image: linear-gradient(to bottom, #f7db00, #1e293b);
+  background-size: cover;
+  min-height: 100vh;
 }
-
-.csk {
-  background: linear-gradient(to top, #1e293b, #f7db00);
+.RR {
+  background-image: linear-gradient(to bottom, #da237b, #1e293b);
+  background-size: cover;
+  min-height: 100vh;
 }
-
-.rr {
-  background: linear-gradient(to top, #1e293b, #da237b);
+.MI {
+  background-image: linear-gradient(to bottom, #13418b, #1e293b);
+  background-size: cover;
+  min-height: 100vh;
 }
-
-.mi {
-  background: linear-gradient(to top, #1e293b, #13418b);
+.SH {
+  background-image: linear-gradient(to bottom, #f26d22, #1e293b);
+  background-size: cover;
+  min-height: 100vh;
 }
-
-.srh {
-  background: linear-gradient(to top, #1e293b, #f26d22);
+.DC {
+  background-image: linear-gradient(to bottom, #4f5db0, #0f172a);
+  background-size: cover;
+  min-height: 100vh;
 }
-
-.dc {
-  background: linear-gradient(to top, #1e293b, #4f5db0);
+.team-matches-bg {
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 70px;
+  padding-left: 50px;
+  padding-right: 55px;
 }
-
-.responsive-container {
-  width: 90%;
-  max-width: 500px;
-  margin-top: 48px;
-}
-
-@media screen and (min-width: 768px) {
-  .responsive-container {
-    margin-top: 96px;
-    max-width: 1110px;
-  }
-}
-
-.team-banner {
+.team-banner-image {
   width: 100%;
+  border-radius: 5px;
 }
-
-.recent-matches-list {
+.latest-matches-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Bree Serif';
+  align-self: flex-start;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.match-card-matches-list {
+  list-style-type: none;
+  padding-left: 0px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  padding-left: 0;
-  margin-top: 24px;
-}
-
-@media screen and (min-width: 768px) {
-  .recent-matches-list {
-    margin-top: 32px;
-  }
+  width: 100%;
+  margin-top: 40px;
 }

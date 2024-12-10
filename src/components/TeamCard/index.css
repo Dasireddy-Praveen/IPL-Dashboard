@@ -1,27 +1,25 @@
-/* Write your CSS here */
-.team-item {
-  background-color: #ffffff33;
-  border-radius: 5px;
-  border-color: #ffffff;
-  border-style: solid;
-  border-width: 1px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
+.team-card-section {
+  text-decoration-line: none;
 }
-.team-logo {
-  width: 55px;
-  height: 55px;
-  margin-right: 20px;
+.team-card-bg {
+  background-color: #ffffff33;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 400px;
+  height: 160px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.team-image {
+  width: 100px;
+  margin-right: 10px;
 }
 .team-name {
   color: #ffffff;
-  font-size: 25px;
-  font-family: Bree Serif;
-}
-.link {
-  display: flex;
-  align-items: center;
-  width: 300px;
+  font-family: 'Bree Serif';
+  font-weight: 500;
+  font-size: 28px;
 }
